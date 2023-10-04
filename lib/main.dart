@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled/about.dart';
 import 'package:untitled/common/route_constants.dart';
 import 'package:untitled/contact.dart';
+import 'package:untitled/login.dart';
 import 'site_drawer.dart';
 import 'home.dart';
 
@@ -14,11 +15,12 @@ void main() {
       fontFamily: "Poppins",
       // useMaterial3: true,
     ),
-    initialRoute: RouteConstants.initialRoute,
+    initialRoute: RouteConstants.loginRoute,
     routes: {
       RouteConstants.initialRoute: (context) => MyApp(),
       RouteConstants.contactRoute: (context) => Contact(),
       RouteConstants.aboutUsRoute: (context) => About(),
+      RouteConstants.loginRoute: (context) => Login(),
     },
   ));
 }

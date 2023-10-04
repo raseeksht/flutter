@@ -3,6 +3,7 @@ class RouteConstants{
 
   static const String contactRoute = "/contact";
   static const String aboutUsRoute = "/about-us";
+  static const String loginRoute = "/login";
 
 
 
