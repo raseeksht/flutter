@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:untitled/common/route_constants.dart';
 
 class Login extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -10,14 +12,14 @@ class Login extends StatelessWidget {
       backgroundColor: Colors.grey.withOpacity(0.3),
       body: Center(
         child: Container(
-          width: MediaQuery
+          width: kIsWeb ?  MediaQuery
               .of(context)
               .size
-              .width / 1.5,
-          height: MediaQuery
+              .width / 1.5 : MediaQuery.of(context).size.width,
+          height: kIsWeb ? MediaQuery
               .of(context)
               .size
-              .height / 1.5,
+              .height / 1.5 : MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
@@ -27,7 +29,8 @@ class Login extends StatelessWidget {
               return Wrap(
                 children: [
                   FractionallySizedBox(
-                    widthFactor: 0.5,
+
+                    widthFactor: kIsWeb? 0.5:1,
                     child: Container(
                       height: constraints.maxHeight,
                       width: constraints.maxWidth,
@@ -39,7 +42,7 @@ class Login extends StatelessWidget {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10.0, left: 10,right: 10),
+                        padding: const EdgeInsets.only(top: 50.0, left: 20,right: 20),
                         child: Form(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -52,7 +55,7 @@ class Login extends StatelessWidget {
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
-                              const SizedBox(height: 5),
+                              const SizedBox(height: 10),
                               RichText(
                                 // textWidthBasis: TextWidthBasis.longestLine,
                                   text: TextSpan(
@@ -69,7 +72,7 @@ class Login extends StatelessWidget {
                                                 decoration: TextDecoration
                                                     .underline))
                                       ])),
-                              SizedBox(height: 10),
+                              SizedBox(height: 20),
                               Text("Email", style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.w500)),
                               TextFormField(
@@ -90,7 +93,8 @@ class Login extends StatelessWidget {
                                   Text("Password"),
                                   Text("Forget password",style: TextStyle(
                                     decoration: TextDecoration.underline,
-                                    color: Colors.blueAccent
+                                    color: Colors.blueAccent,
+
                                   ),)
                                 ],
                               ),
@@ -98,12 +102,26 @@ class Login extends StatelessWidget {
                                 keyboardType: TextInputType.text,
                                 obscureText: true,
                                 decoration: InputDecoration(
-                                  hintText: "",
+                                  hintText: "**********",
                                   border:OutlineInputBorder(),
+
                                   // labelText: "email"
 
                                 ),
 
+                              ),
+                              SizedBox(height: 20,),
+                              Center(
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(),
+                                  onPressed: ()=>{
+                                    Navigator.pushNamed(context, RouteConstants.initialRoute)
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(50,10,50,10),
+                                    child: Text("login"),
+                                  ),
+                                ),
                               )
                               
                               // RichText(text: "Do not have a account yet?")
@@ -111,9 +129,10 @@ class Login extends StatelessWidget {
                           ),
                         ),
                       ),
+
                     ),
                   ),
-                  FractionallySizedBox(
+                  kIsWeb ? FractionallySizedBox(
                     widthFactor: 0.5,
                     child: Container(
                       padding: EdgeInsets.all(30),
@@ -134,7 +153,7 @@ class Login extends StatelessWidget {
                       height: constraints.maxHeight,
                       child: SvgPicture.network('https://svgur.com/i/yCT.svg'),
                     ),
-                  )
+                  ):SizedBox.shrink(),
                 ],
               );
             },

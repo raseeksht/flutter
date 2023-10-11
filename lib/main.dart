@@ -53,10 +53,17 @@ class _MyAppState extends State<MyApp> {
               color: Colors.white,
               fontFamily: 'Comic Sans Ms'),
         )),
-        actions: const [
+        actions: [
           Padding(
             padding: EdgeInsets.only(right: 20),
-            child: Icon(Icons.logout),
+            // child: Icon(Icons.logout),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(),
+              onPressed: ()=>{
+                Navigator.pushNamed(context, RouteConstants.loginRoute)
+              },
+              child: Icon(Icons.logout),
+            ),
           ),
         ],
       ),

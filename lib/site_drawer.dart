@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/common/route_constants.dart';
 import 'side_nav_model.dart';
 
 class SideDrawer extends StatelessWidget {
@@ -20,7 +21,17 @@ class SideDrawer extends StatelessWidget {
 
           )
 
-          )
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(),
+            onPressed: ()=>{
+              Navigator.pushNamed(context, RouteConstants.loginRoute)
+            },
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(50,10,50,10),
+              child: Text("loginp age"),
+            ),
+          ),
         ],
       ),
     );
