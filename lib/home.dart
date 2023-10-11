@@ -30,39 +30,69 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: superheros != null ? superheros!.length : 0,
-        itemBuilder: (context, index) {
-          return Column(
+    return SingleChildScrollView(
+      // scrollDirection:  ,
+      physics: BouncingScrollPhysics(),
+      child: Column(
+        children: [
+          Wrap(
             children: [
-              ListTile(
-                title: Text(
-                  superheros != null ? superheros![index].name! : "Name",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+              FractionallySizedBox(
+                widthFactor: 0.25,
+                child: Card(
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0,right: 10),
+                    child: Text("hello 1"),
                   ),
                 ),
-                subtitle: Text(
-                  superheros != null ? superheros![index].power! : "Power",
-                  style: TextStyle(
-                    // fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                  ),
-                ),
-                leading: ClipOval(
-                    child: Image.network(
-                  superheros != null
-                      ? superheros![index].url!
-                      : "https://upload.wikimedia.org/wikipedia/en/2/23/Deadpool_%282016_poster%29.png",
-                  height: 50,
-                  width: 50,
-                  fit: BoxFit.cover,
-                )),
               ),
-              Divider(height: 20,color: Colors.black,thickness: 2,)
+              FractionallySizedBox(
+                widthFactor: 0.25,
+                child: Card(
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0,right: 10),
+                    child: Text("hello 1"),
+                  ),
+                ),
+              ),
+              FractionallySizedBox(
+                widthFactor: 0.25,
+                child: Card(
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0,right: 10),
+                    child: Text("hello 1"),
+                  ),
+                ),
+              ),
+              FractionallySizedBox(
+                widthFactor: 0.25,
+                child: Card(
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0,right: 10),
+                    child: Text("hello 1"),
+                  ),
+                ),
+              ),
+              FractionallySizedBox(
+                widthFactor: 0.25,
+                child: Card(
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0,right: 10),
+                    child: Text("hello 1"),
+                  ),
+                ),
+              ),
             ],
-          );
-        });
+          )
+        ],
+      ),
+    );
+
+
   }
 }
